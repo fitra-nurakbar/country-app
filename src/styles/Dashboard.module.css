@@ -1,0 +1,33 @@
+.background {
+  @apply min-h-screen flex items-center justify-center;
+}
+
+.container {
+  @apply w-full max-w-3xl p-10 grid gap-y-5 md:gap-y-10;
+}
+.container h1 {
+  @apply text-center text-6xl md:text-7xl font-bold;
+}
+
+.inputContainer {
+  @apply relative w-full;
+}
+.inputContainer > input {
+  @apply w-full py-2 md:py-4 px-3 md:px-6 rounded-lg border-[.5px] border-[#C8C8C8] focus:outline-none focus:border-[#8362F2] focus:ring-1 focus:ring-[#8362F2] dark:bg-slate-800;
+}
+.icon > svg {
+  @apply fill-[#C8C8C8] absolute top-1/2 -translate-y-1/2 right-3 md:right-6;
+}
+.inputContainer > input:focus ~ .icon > svg {
+  @apply fill-[#8362F2];
+}
+
+.listResult {
+  @apply absolute top-full mt-3 shadow-[-4px_-4px_4px_#00000005,_4px_4px_4px_#00000005] w-full rounded-[5px] overflow-hidden;
+}
+.listResult li {
+  @apply p-6 hover:bg-[#F4F4F4] cursor-pointer;
+}
+.notFound {
+  @apply text-[#FF0000];
+}

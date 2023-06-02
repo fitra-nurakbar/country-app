@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  @apply dark:bg-slate-900 dark:text-white font-custom;
+}
