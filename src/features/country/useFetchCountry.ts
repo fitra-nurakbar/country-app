@@ -16,12 +16,12 @@ export function useFetchCountry(inputValue: string) {
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
-
+    
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BASE_API_URL}/name/${inputValue}`
+          `${import.meta.env.VITE_BASE_API_URL}/name/${inputValue}`
         );
-
+        
         const data = response.data;
 
         if (data.length > 5) {
