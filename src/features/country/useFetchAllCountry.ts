@@ -1,4 +1,5 @@
-import axios, { AxiosError } from "axios";
+import { axiosInstanceV3 } from "@/lib/axiosInstance";
+import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 
 interface Country {
@@ -7,7 +8,7 @@ interface Country {
   };
 }
 
-export function useFetchCountry(inputValue: string) {
+export function useFetchAllCountry(name: string) {
   const [data, setData] = useState<Country[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<AxiosError | null>(null);
@@ -16,12 +17,10 @@ export function useFetchCountry(inputValue: string) {
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
-    
+
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_API_URL}/name/${inputValue}`
-        );
-        
+        const response = await axiosInstanceV3.get(`/name/${name}`);
+
         const data = response.data;
 
         if (data.length > 5) {
@@ -37,11 +36,11 @@ export function useFetchCountry(inputValue: string) {
     };
 
     const timer = setTimeout(() => {
-      inputValue !== "" && fetchData();
+      name !== "" && fetchData();
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [inputValue]);
+  }, [name]);
 
   return { data, isLoading, error };
 }

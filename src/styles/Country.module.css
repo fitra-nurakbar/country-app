@@ -1,0 +1,42 @@
+.container {
+  @apply w-full max-w-7xl py-10 px-5 mx-auto;
+}
+.wrapper {
+  @apply flex gap-y-3 flex-col mt-12;
+}
+.title {
+  @apply flex gap-[10px] text-3xl md:text-5xl font-bold;
+}
+.altSpellings {
+  @apply flex flex-wrap gap-[5px];
+}
+.altSpellings > li {
+  @apply text-white font-bold bg-[#8DD4CC] py-[6px] px-4 rounded-[50px];
+}
+.detail {
+  @apply grid md:grid-cols-2 gap-x-6 gap-y-10  mt-6;
+}
+.card {
+  @apply relative items-center;
+}
+.card:nth-child(-n + 2) {
+  @apply shadow-[-4px_-4px_4px_#00000005,_4px_4px_4px_#00000005] p-6 rounded-[5px] overflow-hidden;
+}
+.card h3 {
+  @apply text-lg font-medium mb-3;
+}
+.card strong {
+  @apply text-5xl font-bold text-[#8362F2];
+}
+.intersect {
+  @apply absolute bottom-0 right-0;
+}
+.card p {
+  @apply text-sm;
+}
+.card p:not(:last-child) {
+  @apply mb-3;
+}
+.card span {
+  @apply text-[#8362F2] underline cursor-pointer;
+}

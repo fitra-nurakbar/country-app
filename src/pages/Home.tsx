@@ -1,10 +1,11 @@
-import { useFetchCountry } from "@/features/country/useFetchCountry";
+import { useFetchAllCountry } from "@/features/country/useFetchAllCountry";
 import styles from "@/styles/Dashboard.module.css";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Dashboard() {
+export default function Home() {
   const [name, setName] = useState("");
-  const { data, error } = useFetchCountry(name);
+  const { data, error } = useFetchAllCountry(name);
 
   const changeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -37,8 +38,10 @@ export default function Dashboard() {
                 {error ? (
                   <li className={styles.notFound}>Data not found</li>
                 ) : (
-                  data.map((test, index) => (
-                    <li key={index}>{test.name.common}</li>
+                  data.map((country, index) => (
+                    <Link to={`country/${country.name.common}`} key={index}>
+                      <li>{country.name.common}</li>
+                    </Link>
                   ))
                 )}
               </ul>

@@ -26,7 +26,10 @@
   @apply absolute top-full mt-3 shadow-[-4px_-4px_4px_#00000005,_4px_4px_4px_#00000005] w-full rounded-[5px] overflow-hidden;
 }
 .listResult li {
-  @apply p-6 hover:bg-[#F4F4F4] cursor-pointer;
+  @apply p-6;
+}
+.listResult li:not(.notFound) {
+  @apply hover:bg-[#F4F4F4] dark:hover:bg-slate-800 cursor-pointer;
 }
 .notFound {
   @apply text-[#FF0000];
